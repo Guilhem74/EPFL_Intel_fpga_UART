@@ -109,13 +109,13 @@ RX: process(clk, nReset)
 			iReadPin_Previous<='0';
 		elsif rising_edge(Clk) then
 			iReadPin <= RX_PORT;
-			iReadPin_Previous<=iReadPin;
+			iReadPin_Previous<=iReadPin;--Is one clk late
 				case State_Read is 
 					when IDLE=> 
-						if iReadPin='0' and iReadPin_Previous='1' then
-							State_Read<=Start_BIT;
+						if iReadPin='0' and iReadPin_Previous='1' then--Falling edge
+							State_Read<=Start_BIT;--Start of a communication
 						else
-							State_Read<=IDLE;
+							State_Read<=IDLE;--No communication, keep looking
 						end if;
 							Counter_Read<=to_unsigned(0,Counter_Read'length);
 							iRead_Current <= (others => '0');
@@ -125,19 +125,19 @@ RX: process(clk, nReset)
 								State_Read<=BIT0;
 								Counter_Read<=to_unsigned(0,Counter_Read'length);
 							else--Noise or misyncronized
-								State_Read<=IDLE;
+								State_Read<=IDLE;--Back to nothing
 								Counter_Read<=to_unsigned(0,Counter_Read'length);
 							end if;
 						else
 							Counter_Read<=Counter_Read+1;
 						end if;
-					when BIT0=>
-						if Counter_Read=unsigned(iRegClockCounter) then
-								State_Read<=BIT1;
-								Counter_Read<=to_unsigned(0,Counter_Read'length);
-								iRead_Current(0)<=iReadPin;
+					when BIT0=>--Looking to save the bit 0
+						if Counter_Read=unsigned(iRegClockCounter) then--A period later after the middle of the start bit = middle of bit 0
+								State_Read<=BIT1;-- Time for bit 1 now
+								Counter_Read<=to_unsigned(0,Counter_Read'length);--Will need to count again at the next state
+								iRead_Current(0)<=iReadPin;--Sample
 						else
-							Counter_Read<=Counter_Read+1;
+							Counter_Read<=Counter_Read+1; 
 						end if;
 					when BIT1=>
 						if Counter_Read=unsigned(iRegClockCounter) then
@@ -197,13 +197,13 @@ RX: process(clk, nReset)
 						end if;
 					when STOP_BIT=>
 						if Counter_Read=unsigned(iRegClockCounter) then
-							if iReadPin/='1' or iReadPin_Previous/='1' then --Still in start bit
+							if iReadPin/='1' or iReadPin_Previous/='1' then --Stop bit isn't correct
 								Error_Read<='1';
 							end if;
-							State_Read<=IDLE;
-							Counter_Read<=to_unsigned(0,Counter_Read'length);
-							iRegRead_Final<=iRead_Current;
-							iRegValueReadAvailable<='1';
+							State_Read<=IDLE;-- Back to nothing
+							Counter_Read<=to_unsigned(0,Counter_Read'length);--Reset
+							iRegRead_Final<=iRead_Current;--The value must be saved, it is now available to the user
+							iRegValueReadAvailable<='1';-- Emit the status register to let know the user that you have read something
 						else
 							Counter_Read<=Counter_Read+1;
 						end if;
