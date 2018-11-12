@@ -4,11 +4,10 @@
 
 `timescale 1 ps / 1 ps
 module System (
-		input  wire        clk_clk,                      //                   clk.clk
-		input  wire        fpga_uart_custom_0_rx_rx_in,  // fpga_uart_custom_0_rx.rx_in
-		output wire        fpga_uart_custom_0_tx_tx_out, // fpga_uart_custom_0_tx.tx_out
-		output wire [12:0] fpga_uart_debug_readdata,     //       fpga_uart_debug.readdata
-		input  wire        reset_reset_n                 //                 reset.reset_n
+		input  wire  clk_clk,                      //                   clk.clk
+		input  wire  fpga_uart_custom_0_rx_rx_in,  // fpga_uart_custom_0_rx.rx_in
+		output wire  fpga_uart_custom_0_tx_tx_out, // fpga_uart_custom_0_tx.tx_out
+		input  wire  reset_reset_n                 //                 reset.reset_n
 	);
 
 	wire  [31:0] nios2_gen2_0_data_master_readdata;                              // mm_interconnect_0:nios2_gen2_0_data_master_readdata -> nios2_gen2_0:d_readdata
@@ -69,8 +68,7 @@ module System (
 		.avs_WriteData  (mm_interconnect_0_fpga_uart_custom_0_avalon_slave_0_writedata),  //               .writedata
 		.RX_PORT        (fpga_uart_custom_0_rx_rx_in),                                    //    conduit_end.rx_in
 		.nReset         (~rst_controller_reset_out_reset),                                //     reset_sink.reset_n
-		.TX_PORT        (fpga_uart_custom_0_tx_tx_out),                                   //  conduit_end_1.tx_out
-		.Debug_OUT      (fpga_uart_debug_readdata)                                        //  conduit_end_2.readdata
+		.TX_PORT        (fpga_uart_custom_0_tx_tx_out)                                    //  conduit_end_1.tx_out
 	);
 
 	System_jtag_uart_0 jtag_uart_0 (

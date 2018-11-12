@@ -148,7 +148,7 @@ procedure Read_RX(Data: unsigned) is
 	RX_PORT<='1';--STOP Bit
        wait for Baud_Period;
 	RX_PORT<='1';
-	wait for 83ns;
+	wait for 2.023us;
  end procedure Read_RX;                                                                                   
 BEGIN
 	RX_PORT<='1';

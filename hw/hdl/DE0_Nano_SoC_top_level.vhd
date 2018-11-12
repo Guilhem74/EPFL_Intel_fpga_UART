@@ -107,8 +107,7 @@ architecture rtl of DE0_Nano_SoC_top_level is
 			clk_clk                      : in  std_logic := 'X'; -- clk
 			fpga_uart_custom_0_rx_rx_in  : in  std_logic := 'X'; -- rx_in
 			fpga_uart_custom_0_tx_tx_out : out std_logic;        -- tx_out
-			reset_reset_n                : in  std_logic := 'X';  -- reset_n
-			fpga_uart_debug_readdata     : out std_logic_vector(12 downto 0)         -- readdata
+			reset_reset_n                : in  std_logic := 'X'  -- reset_n
 
 		);
 	end component System;
@@ -116,11 +115,9 @@ begin
 	u0 : component System
 		port map (
 			clk_clk                      => FPGA_CLK1_50,                      --                   clk.clk
-			fpga_uart_custom_0_rx_rx_in  => GPIO_0(1),  -- fpga_uart_custom_0_rx.rx_in
-			fpga_uart_custom_0_tx_tx_out => GPIO_0(15), -- fpga_uart_custom_0_tx.tx_out
-			reset_reset_n                => KEY_N(0),                 --                 reset.reset_n
-			fpga_uart_debug_readdata     => GPIO_0(14 downto 2)         -- readdata
-
+			fpga_uart_custom_0_rx_rx_in  => GPIO_0(0),  -- fpga_uart_custom_0_rx.rx_in
+			fpga_uart_custom_0_tx_tx_out => GPIO_0(1), -- fpga_uart_custom_0_tx.tx_out
+			reset_reset_n                => KEY_N(0)               --                 reset.reset_n
 		);
 
 end;

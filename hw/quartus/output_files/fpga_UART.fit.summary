@@ -1,12 +1,12 @@
-Fitter Status : Successful - Mon Nov 12 17:07:15 2018
+Fitter Status : Successful - Mon Nov 12 21:09:25 2018
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 Revision Name : fpga_UART
 Top-level Entity Name : DE0_Nano_SoC_top_level
 Family : Cyclone V
 Device : 5CSEMA4U23C6
 Timing Models : Final
-Logic utilization (in ALMs) : 1,445 / 15,880 ( 9 % )
-Total registers : 2233
+Logic utilization (in ALMs) : 1,494 / 15,880 ( 9 % )
+Total registers : 2198
 Total pins : 39 / 314 ( 12 % )
 Total virtual pins : 0
 Total block memory bits : 1,112,320 / 2,764,800 ( 40 % )

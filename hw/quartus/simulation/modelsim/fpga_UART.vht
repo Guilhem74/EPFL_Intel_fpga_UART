@@ -145,7 +145,7 @@ procedure Read_RX(Data: unsigned) is
 		 RX_PORT<=Temp(I);
 		wait for Baud_Period;
 	end loop;
-	RX_PORT<='1';--STOP Bit
+	RX_PORT<='0';--STOP Bit
        wait for Baud_Period;
 	RX_PORT<='1';
 	wait for 2.023us;

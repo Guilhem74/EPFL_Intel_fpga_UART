@@ -16,14 +16,14 @@
 #define iRegValueWriteAvailable 12
 #define iRegValueReadAvailable 16
 #define iRegError_Read 20
-#define Test 24
+#define iRegTest 24
 //Write Register
 //#define iRegClockCounter 0
-#define Debug
+//#define Debug
 
 
 #define CLOCK_INIT 50000000 //Hz
-#define BaudRate 19200 //Hz
+#define BaudRate 115200 //Hz
 
 
 #include <stdio.h>
@@ -31,69 +31,45 @@
 int main()
 {
 	int k=0;
-	for(k=0;k<5000;k++);
   printf("Hello from Nios II!\n");
-  alt_printf("iRegPolarity=%x\n\n",IORD_32DIRECT(FPGA_UART_CUSTOM_0_BASE,Test));
+  alt_printf("iRegTest=%x\n\n",IORD_32DIRECT(FPGA_UART_CUSTOM_0_BASE,iRegTest));
   IOWR_32DIRECT(FPGA_UART_CUSTOM_0_BASE,iRegClockCounter,CLOCK_INIT/BaudRate);//50Mhz/ bps
-  	  int ReadA[32]={};
-  	  int ReadB[32]={};
-	  int State=0;
-	  int iA=0;
-	  int iB=0;
-	  int NumberA=0;
-	  int NumberB=0;
+	int State=0;
+	long NumberA=0;
+	long NumberB=0;
   while(1){
 	  if(IORD_32DIRECT(FPGA_UART_CUSTOM_0_BASE,iRegError_Read)==1)
 		{
 		  alt_printf("Error=\n");
-		  IOWR_32DIRECT(FPGA_UART_CUSTOM_0_BASE,iRegError_Read,111);//50Mhz/ bps
+		  IOWR_32DIRECT(FPGA_UART_CUSTOM_0_BASE,iRegError_Read,111);
 		}
-
 		  	  if(IORD_32DIRECT(FPGA_UART_CUSTOM_0_BASE,iRegValueReadAvailable)==1)
 		  	  {
-		  		//for(k=0;k<5000;k++);
+
 
 		  		int Read=IORD_32DIRECT(FPGA_UART_CUSTOM_0_BASE,iRegRead_Final);
 		  		while(IORD_32DIRECT(FPGA_UART_CUSTOM_0_BASE,iRegValueWriteAvailable)!=0);
-#ifdef Debug
-		  		IOWR_32DIRECT(FPGA_UART_CUSTOM_0_BASE,iRegToTransmit,Read);
-		  		alt_printf("Read=%x\n",Read);
-#else
-		  		if (Read==0x2B)// +
+		  				  			IOWR_32DIRECT(FPGA_UART_CUSTOM_0_BASE,iRegToTransmit,Read);
+		  						  printf("%d\n",Read);
+		  				  			/*
+		  		if (Read=='+')// +
 		  		{
 		  			while(IORD_32DIRECT(FPGA_UART_CUSTOM_0_BASE,iRegValueWriteAvailable)!=0);
 		  			IOWR_32DIRECT(FPGA_UART_CUSTOM_0_BASE,iRegToTransmit,Read);
-					State=1;
-					for(k=0;k<iA;k++)
-						{
-							NumberA+=pow(10,k)*ReadA[iA-k-1];
-						}
-					 printf("+");
-
+		  			printf("+");
+					State=1;//USe to swap variable where to store the information received
 		  		}
-		  		else if (Read==0xd)
+		  		else if (Read=='\r')
 				{
 		  			State=0;
-					for(k=0;k<iB;k++)
-					{
-						NumberB+=pow(10,k)*ReadB[iB-k-1];
-					}
 					char T[32]={};
-					itoa(NumberA+NumberB,T,10);
-					printf("= %d \n",NumberA+NumberB);
-					for(k=0;k<32;k++)
-					{
-						ReadA[k]=0;
-						ReadB[k]=0;
-						iA=0;
-						iB=0;
-						NumberA=0;
-						NumberB=0;
-					}
+					itoa((long) NumberA+NumberB,T,10);//Convert the sum into array of char
+					printf("= %ld \n",NumberA+NumberB);//Display the sum on the NIOS console
+
 					while(IORD_32DIRECT(FPGA_UART_CUSTOM_0_BASE,iRegValueWriteAvailable)!=0);
-					IOWR_32DIRECT(FPGA_UART_CUSTOM_0_BASE,iRegToTransmit,'=');
+					IOWR_32DIRECT(FPGA_UART_CUSTOM_0_BASE,iRegToTransmit,'=');//Display =
 					for(k=0;k<strlen(T);k++)
-					{
+					{// Send every character of the array
 						while(IORD_32DIRECT(FPGA_UART_CUSTOM_0_BASE,iRegValueWriteAvailable)!=0);
 									IOWR_32DIRECT(FPGA_UART_CUSTOM_0_BASE,iRegToTransmit,T[k]);
 					}
@@ -101,27 +77,28 @@ int main()
 					IOWR_32DIRECT(FPGA_UART_CUSTOM_0_BASE,iRegToTransmit,'\r');
 					while(IORD_32DIRECT(FPGA_UART_CUSTOM_0_BASE,iRegValueWriteAvailable)!=0);
 					IOWR_32DIRECT(FPGA_UART_CUSTOM_0_BASE,iRegToTransmit,'\n');
+					NumberA=0;
+					NumberB=0;
 				}
+		  		else if(Read=='\n')
+		  		{}//Just do nothing
 		  		else
 		  		{
 		  			while(IORD_32DIRECT(FPGA_UART_CUSTOM_0_BASE,iRegValueWriteAvailable)!=0);
-		  				IOWR_32DIRECT(FPGA_UART_CUSTOM_0_BASE,iRegToTransmit,Read);
+		  			IOWR_32DIRECT(FPGA_UART_CUSTOM_0_BASE,iRegToTransmit,Read);//Display what we receive
 		  			if (State==0)
-		  			{
-		  				ReadA[iA]=Read-0x30;
-		  				iA++;
+		  			{//We haven't receive +, store the number
+						NumberA=NumberA*10+ Read-0x30;
 
 		  			}
 		  			else
-		  			{
-		  				ReadB[iB]=Read-0x30;
-		  				iB++;
+		  			{// We have received + but not \r yet, store the number
+		  				NumberB=NumberB*10+ Read-0x30;
 		  			}
-		  			printf("%d",Read-0x30);
+		  			printf("%d",Read-0x30);//Display on the NIOS console
 		  		}
 
-#endif
-
+*/
 		  	  }
 
 

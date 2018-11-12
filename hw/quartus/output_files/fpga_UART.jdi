@@ -1,6 +1,6 @@
 <sld_project_info>
   <project>
-    <hash md5_digest_80b="f0ae07acbaba363ff4ac"/>
+    <hash md5_digest_80b="d9b82d31b2337f8db7d3"/>
   </project>
   <file_info>
     <file device="5CSEMA4U23C6" path="fpga_UART.sof" usercode="0xFFFFFFFF"/>
@@ -139,7 +139,7 @@
   <sld_infos>
     <sld_info hpath="System:u0" name="u0">
       <assignment_values>
-        <assignment_value text="QSYS_NAME System HAS_SOPCINFO 1 GENERATION_ID 1542038638"/>
+        <assignment_value text="QSYS_NAME System HAS_SOPCINFO 1 GENERATION_ID 1542053200"/>
       </assignment_values>
       <parameters/>
     </sld_info>
