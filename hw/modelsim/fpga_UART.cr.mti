@@ -1,0 +1,18 @@
+C:/Users/Guilhem/fpga_UART/hw/quartus/simulation/modelsim/fpga_UART.vht {2 {vcom -work fpga_UART -2002 -explicit -stats=none C:/Users/Guilhem/fpga_UART/hw/quartus/simulation/modelsim/fpga_UART.vht
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity fpga_UART_vhd_tst
+-- Compiling architecture fpga_UART_arch of fpga_UART_vhd_tst
+** Warning: C:/Users/Guilhem/fpga_UART/hw/quartus/simulation/modelsim/fpga_UART.vht(34): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: C:/Users/Guilhem/fpga_UART/hw/quartus/simulation/modelsim/fpga_UART.vht(35): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: C:/Users/Guilhem/fpga_UART/hw/quartus/simulation/modelsim/fpga_UART.vht(97): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: C:/Users/Guilhem/fpga_UART/hw/quartus/simulation/modelsim/fpga_UART.vht(99): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: C:/Users/Guilhem/fpga_UART/hw/quartus/simulation/modelsim/fpga_UART.vht(104): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: C:/Users/Guilhem/fpga_UART/hw/quartus/simulation/modelsim/fpga_UART.vht(134): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: C:/Users/Guilhem/fpga_UART/hw/quartus/simulation/modelsim/fpga_UART.vht(151): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+** Warning: C:/Users/Guilhem/fpga_UART/hw/quartus/simulation/modelsim/fpga_UART.vht(155): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+
+} {} {}}

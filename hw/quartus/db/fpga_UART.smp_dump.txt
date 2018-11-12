@@ -1,0 +1,23 @@
+
+State Machine - |DE0_Nano_SoC_top_level|System:u0|System_nios2_gen2_0:nios2_gen2_0|System_nios2_gen2_0_cpu:cpu|System_nios2_gen2_0_cpu_nios2_oci:the_System_nios2_gen2_0_cpu_nios2_oci|System_nios2_gen2_0_cpu_debug_slave_wrapper:the_System_nios2_gen2_0_cpu_debug_slave_wrapper|System_nios2_gen2_0_cpu_debug_slave_tck:the_System_nios2_gen2_0_cpu_debug_slave_tck|DRsize
+Name DRsize.101 DRsize.100 DRsize.011 DRsize.010 DRsize.001 DRsize.000 
+DRsize.000 0 0 0 0 0 0 
+DRsize.001 0 0 0 0 1 1 
+DRsize.010 0 0 0 1 0 1 
+DRsize.011 0 0 1 0 0 1 
+DRsize.100 0 1 0 0 0 1 
+DRsize.101 1 0 0 0 0 1 
+
+State Machine - |DE0_Nano_SoC_top_level|System:u0|fpga_UART:fpga_uart_custom_0|State_Read
+Name State_Read.STOP_BIT State_Read.BIT7 State_Read.BIT6 State_Read.BIT5 State_Read.BIT4 State_Read.BIT3 State_Read.BIT2 State_Read.BIT1 State_Read.BIT0 State_Read.Start_BIT State_Read.IDLE 
+State_Read.IDLE 0 0 0 0 0 0 0 0 0 0 0 
+State_Read.Start_BIT 0 0 0 0 0 0 0 0 0 1 1 
+State_Read.BIT0 0 0 0 0 0 0 0 0 1 0 1 
+State_Read.BIT1 0 0 0 0 0 0 0 1 0 0 1 
+State_Read.BIT2 0 0 0 0 0 0 1 0 0 0 1 
+State_Read.BIT3 0 0 0 0 0 1 0 0 0 0 1 
+State_Read.BIT4 0 0 0 0 1 0 0 0 0 0 1 
+State_Read.BIT5 0 0 0 1 0 0 0 0 0 0 1 
+State_Read.BIT6 0 0 1 0 0 0 0 0 0 0 1 
+State_Read.BIT7 0 1 0 0 0 0 0 0 0 0 1 
+State_Read.STOP_BIT 1 0 0 0 0 0 0 0 0 0 1 
