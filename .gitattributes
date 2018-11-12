@@ -1,2 +1,13 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+*.cdb
+*.hdb
+*.cdb
+*.bak
+*.xml
+*.nlv
+*.kpt
+*.tdf
+*.tdf
+*.v
