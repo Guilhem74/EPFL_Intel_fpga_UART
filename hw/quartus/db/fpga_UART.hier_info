@@ -117,6 +117,7 @@ Clk => State_Write[0].CLK
 Clk => State_Write[1].CLK
 Clk => State_Write[2].CLK
 Clk => State_Write[3].CLK
+Clk => iReadPin.CLK
 Clk => iReadPin_Previous.CLK
 Clk => iRegValueReadAvailable.CLK
 Clk => Error_Read.CLK
@@ -441,6 +442,7 @@ nReset => avs_ReadData[2]~reg0.ENA
 nReset => avs_ReadData[1]~reg0.ENA
 nReset => avs_ReadData[0]~reg0.ENA
 nReset => iHasBeenTransmit.ENA
+nReset => iReadPin.ENA
 avs_Address[0] => Mux0.IN2
 avs_Address[0] => Mux1.IN2
 avs_Address[0] => Mux2.IN2
@@ -746,18 +748,7 @@ avs_WriteData[29] => Mux2.IN3
 avs_WriteData[30] => Mux1.IN3
 avs_WriteData[31] => Mux0.IN3
 TX_PORT <= TX_PORT~reg0.DB_MAX_OUTPUT_PORT_TYPE
-RX_PORT => iRead_Current.DATAB
-RX_PORT => iRead_Current.DATAB
-RX_PORT => iRead_Current.DATAB
-RX_PORT => iRead_Current.DATAB
-RX_PORT => iRead_Current.DATAB
-RX_PORT => iRead_Current.DATAB
-RX_PORT => iRead_Current.DATAB
-RX_PORT => iRead_Current.DATAB
-RX_PORT => iReadPin_Previous.DATAIN
-RX_PORT => RX.IN1
-RX_PORT => RX.IN1
-RX_PORT => RX.IN1
+RX_PORT => iReadPin.DATAIN
 
 
 |DE0_Nano_SoC_top_level|System:u0|System_jtag_uart_0:jtag_uart_0

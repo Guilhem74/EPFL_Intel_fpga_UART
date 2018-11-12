@@ -1,5 +1,5 @@
 Flow report for fpga_UART
-Mon Nov 12 21:10:01 2018
+Mon Nov 12 21:37:24 2018
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
@@ -40,15 +40,15 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------+
 ; Flow Summary                                                                      ;
 +---------------------------------+-------------------------------------------------+
-; Flow Status                     ; Successful - Mon Nov 12 21:10:01 2018           ;
+; Flow Status                     ; Successful - Mon Nov 12 21:37:24 2018           ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
 ; Revision Name                   ; fpga_UART                                       ;
 ; Top-level Entity Name           ; DE0_Nano_SoC_top_level                          ;
 ; Family                          ; Cyclone V                                       ;
 ; Device                          ; 5CSEMA4U23C6                                    ;
 ; Timing Models                   ; Final                                           ;
-; Logic utilization (in ALMs)     ; 1,494 / 15,880 ( 9 % )                          ;
-; Total registers                 ; 2198                                            ;
+; Logic utilization (in ALMs)     ; 1,441 / 15,880 ( 9 % )                          ;
+; Total registers                 ; 2205                                            ;
 ; Total pins                      ; 39 / 314 ( 12 % )                               ;
 ; Total virtual pins              ; 0                                               ;
 ; Total block memory bits         ; 1,112,320 / 2,764,800 ( 40 % )                  ;
@@ -67,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/12/2018 21:06:18 ;
+; Start date & time ; 11/12/2018 21:33:50 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; fpga_UART           ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+------------------------+----------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name            ; Section Id     ;
 +-------------------------------------+----------------------------------------+---------------+------------------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 24062491136.154205317817124            ; --            ; --                     ; --             ;
+; COMPILER_SIGNATURE_ID               ; 24062491136.154205483014840            ; --            ; --                     ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                                   ; --            ; --                     ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)                 ; <None>        ; --                     ; --             ;
 ; EDA_TIME_SCALE                      ; 1 ps                                   ; --            ; --                     ; eda_simulation ;
@@ -99,12 +99,12 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:01:33     ; 1.0                     ; 5056 MB             ; 00:02:43                           ;
-; Fitter               ; 00:01:30     ; 1.2                     ; 6531 MB             ; 00:04:02                           ;
-; Assembler            ; 00:00:10     ; 1.0                     ; 4908 MB             ; 00:00:08                           ;
-; Timing Analyzer      ; 00:00:14     ; 2.0                     ; 5201 MB             ; 00:00:26                           ;
-; EDA Netlist Writer   ; 00:00:05     ; 1.0                     ; 4835 MB             ; 00:00:05                           ;
-; Total                ; 00:03:32     ; --                      ; --                  ; 00:07:24                           ;
+; Analysis & Synthesis ; 00:01:34     ; 1.0                     ; 5058 MB             ; 00:02:34                           ;
+; Fitter               ; 00:01:21     ; 1.2                     ; 6551 MB             ; 00:03:49                           ;
+; Assembler            ; 00:00:10     ; 1.0                     ; 4909 MB             ; 00:00:09                           ;
+; Timing Analyzer      ; 00:00:15     ; 2.0                     ; 5199 MB             ; 00:00:25                           ;
+; EDA Netlist Writer   ; 00:00:05     ; 1.0                     ; 4834 MB             ; 00:00:05                           ;
+; Total                ; 00:03:25     ; --                      ; --                  ; 00:07:02                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

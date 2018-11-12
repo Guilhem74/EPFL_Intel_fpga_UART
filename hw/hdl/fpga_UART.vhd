@@ -42,7 +42,6 @@ ARCHITECTURE comp OF fpga_UART IS
 	signal   ValueToReachWrite:  unsigned(31 downto 0);
 
 BEGIN
-iReadPin <= RX_PORT;
 
 --   Process Write to registers
 Write_process: process(Clk, nReset) begin
@@ -109,6 +108,7 @@ RX: process(clk, nReset)
 			iRegValueReadAvailable<='0';
 			iReadPin_Previous<='0';
 		elsif rising_edge(Clk) then
+			iReadPin <= RX_PORT;
 			iReadPin_Previous<=iReadPin;
 				case State_Read is 
 					when IDLE=> 
@@ -120,7 +120,7 @@ RX: process(clk, nReset)
 							Counter_Read<=to_unsigned(0,Counter_Read'length);
 							iRead_Current <= (others => '0');
 					when START_BIT=>
-						if Counter_Read=unsigned(iRegClockCounter)/2-1 then
+						if Counter_Read=unsigned(iRegClockCounter)/2 then
 							if iReadPin='0' and iReadPin_Previous='0' then --Still in start bit
 								State_Read<=BIT0;
 								Counter_Read<=to_unsigned(0,Counter_Read'length);
@@ -132,7 +132,7 @@ RX: process(clk, nReset)
 							Counter_Read<=Counter_Read+1;
 						end if;
 					when BIT0=>
-						if Counter_Read=unsigned(iRegClockCounter)-1 then
+						if Counter_Read=unsigned(iRegClockCounter) then
 								State_Read<=BIT1;
 								Counter_Read<=to_unsigned(0,Counter_Read'length);
 								iRead_Current(0)<=iReadPin;
@@ -140,7 +140,7 @@ RX: process(clk, nReset)
 							Counter_Read<=Counter_Read+1;
 						end if;
 					when BIT1=>
-						if Counter_Read=unsigned(iRegClockCounter)-1 then
+						if Counter_Read=unsigned(iRegClockCounter) then
 								State_Read<=BIT2;
 								Counter_Read<=to_unsigned(0,Counter_Read'length);
 								iRead_Current(1)<=iReadPin;
@@ -148,7 +148,7 @@ RX: process(clk, nReset)
 							Counter_Read<=Counter_Read+1;
 						end if;
 					when BIT2=>
-						if Counter_Read=unsigned(iRegClockCounter)-1 then
+						if Counter_Read=unsigned(iRegClockCounter) then
 								State_Read<=BIT3;
 								Counter_Read<=to_unsigned(0,Counter_Read'length);
 								iRead_Current(2)<=iReadPin;
@@ -156,7 +156,7 @@ RX: process(clk, nReset)
 							Counter_Read<=Counter_Read+1;
 						end if;
 					when BIT3=>
-						if Counter_Read=unsigned(iRegClockCounter)-1 then
+						if Counter_Read=unsigned(iRegClockCounter) then
 								State_Read<=BIT4;
 								Counter_Read<=to_unsigned(0,Counter_Read'length);
 								iRead_Current(3)<=iReadPin;
@@ -164,7 +164,7 @@ RX: process(clk, nReset)
 							Counter_Read<=Counter_Read+1;
 						end if;
 					when BIT4=>
-						if Counter_Read=unsigned(iRegClockCounter)-1 then
+						if Counter_Read=unsigned(iRegClockCounter) then
 								State_Read<=BIT5;
 								Counter_Read<=to_unsigned(0,Counter_Read'length);
 								iRead_Current(4)<=iReadPin;
@@ -172,7 +172,7 @@ RX: process(clk, nReset)
 							Counter_Read<=Counter_Read+1;
 						end if;
 					when BIT5=>
-						if Counter_Read=unsigned(iRegClockCounter)-1 then
+						if Counter_Read=unsigned(iRegClockCounter) then
 								State_Read<=BIT6;
 								Counter_Read<=to_unsigned(0,Counter_Read'length);
 								iRead_Current(5)<=iReadPin;
@@ -180,7 +180,7 @@ RX: process(clk, nReset)
 							Counter_Read<=Counter_Read+1;
 						end if;
 					when BIT6=>
-						if Counter_Read=unsigned(iRegClockCounter)-1 then
+						if Counter_Read=unsigned(iRegClockCounter) then
 								State_Read<=BIT7;
 								Counter_Read<=to_unsigned(0,Counter_Read'length);
 								iRead_Current(6)<=iReadPin;
@@ -188,7 +188,7 @@ RX: process(clk, nReset)
 							Counter_Read<=Counter_Read+1;
 						end if;
 					when BIT7=>
-						if Counter_Read=unsigned(iRegClockCounter)-1 then
+						if Counter_Read=unsigned(iRegClockCounter) then
 								State_Read<=STOP_BIT;
 								Counter_Read<=to_unsigned(0,Counter_Read'length);
 								iRead_Current(7)<=iReadPin;
@@ -196,7 +196,7 @@ RX: process(clk, nReset)
 							Counter_Read<=Counter_Read+1;
 						end if;
 					when STOP_BIT=>
-						if Counter_Read=unsigned(iRegClockCounter)-1 then
+						if Counter_Read=unsigned(iRegClockCounter) then
 							if iReadPin/='1' or iReadPin_Previous/='1' then --Still in start bit
 								Error_Read<='1';
 							end if;

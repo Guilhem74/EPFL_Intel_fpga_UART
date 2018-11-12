@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 dC:/Users/Guilhem/fpga_UART/hw/modelsim
 Efpga_uart
-Z1 w1542053837
+Z1 w1542054257
 Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
 Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
@@ -22,9 +22,9 @@ V5R;X=:3Y0S>]4zSB>6c0o3
 !s100 h=TYb2Q5=ERE7Cbkg9?CN2
 Z7 OV;C;10.5b;63
 32
-Z8 !s110 1542053932
+Z8 !s110 1542054275
 !i10b 1
-Z9 !s108 1542053932.000000
+Z9 !s108 1542054275.000000
 Z10 !s90 -reportprogress|300|-work|fpga_UART|-2002|-explicit|-stats=none|C:/Users/Guilhem/fpga_UART/hw/hdl/fpga_UART.vhd|
 Z11 !s107 C:/Users/Guilhem/fpga_UART/hw/hdl/fpga_UART.vhd|
 !i113 1
@@ -37,8 +37,8 @@ R4
 DEx4 work 9 fpga_uart 0 22 5R;X=:3Y0S>]4zSB>6c0o3
 l44
 L21
-V^YF:iN12PEoZefQH[ijXh0
-!s100 ]dL5>I:lNk6j;Yl7k_E`f3
+V@UKN=bGz1o8d6VJIeNW3Y2
+!s100 WnSn810aNeV3N2oWAA[?b3
 R7
 32
 R8
@@ -63,11 +63,11 @@ V0gD458L8YL=fX5=FefXKn1
 !s100 9E2gNiB7MU@7W:C99Mmjm1
 R7
 32
-R8
+Z17 !s110 1542054276
 !i10b 1
 R9
-Z17 !s90 -reportprogress|300|-work|fpga_UART|-2002|-explicit|-stats=none|C:/Users/Guilhem/fpga_UART/hw/quartus/simulation/modelsim/fpga_UART.vht|
-Z18 !s107 C:/Users/Guilhem/fpga_UART/hw/quartus/simulation/modelsim/fpga_UART.vht|
+Z18 !s90 -reportprogress|300|-work|fpga_UART|-2002|-explicit|-stats=none|C:/Users/Guilhem/fpga_UART/hw/quartus/simulation/modelsim/fpga_UART.vht|
+Z19 !s107 C:/Users/Guilhem/fpga_UART/hw/quartus/simulation/modelsim/fpga_UART.vht|
 !i113 1
 R12
 R13
@@ -75,18 +75,18 @@ Afpga_uart_arch
 R2
 R3
 R4
-Z19 DEx4 work 17 fpga_uart_vhd_tst 0 22 0gD458L8YL=fX5=FefXKn1
+Z20 DEx4 work 17 fpga_uart_vhd_tst 0 22 0gD458L8YL=fX5=FefXKn1
 l65
 L32
-VN43DB;f[0SlbGg[[4J<eA2
-!s100 iLlB[oKFzaP0j[^O>H:3]1
+Z21 VN43DB;f[0SlbGg[[4J<eA2
+Z22 !s100 iLlB[oKFzaP0j[^O>H:3]1
 R7
 32
-R8
+R17
 !i10b 1
 R9
-R17
 R18
+R19
 !i113 1
 R12
 R13

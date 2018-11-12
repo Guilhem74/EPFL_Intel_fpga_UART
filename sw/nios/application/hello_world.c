@@ -48,10 +48,10 @@ int main()
 
 
 		  		int Read=IORD_32DIRECT(FPGA_UART_CUSTOM_0_BASE,iRegRead_Final);
-		  		while(IORD_32DIRECT(FPGA_UART_CUSTOM_0_BASE,iRegValueWriteAvailable)!=0);
-		  				  			IOWR_32DIRECT(FPGA_UART_CUSTOM_0_BASE,iRegToTransmit,Read);
-		  						  printf("%d\n",Read);
-		  				  			/*
+		  		//while(IORD_32DIRECT(FPGA_UART_CUSTOM_0_BASE,iRegValueWriteAvailable)!=0);
+		  				  			//IOWR_32DIRECT(FPGA_UART_CUSTOM_0_BASE,iRegToTransmit,Read);
+		  						  //printf("%d\n",Read);
+
 		  		if (Read=='+')// +
 		  		{
 		  			while(IORD_32DIRECT(FPGA_UART_CUSTOM_0_BASE,iRegValueWriteAvailable)!=0);
@@ -98,7 +98,7 @@ int main()
 		  			printf("%d",Read-0x30);//Display on the NIOS console
 		  		}
 
-*/
+
 		  	  }
 
 

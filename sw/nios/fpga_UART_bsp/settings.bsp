@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>12-Nov-2018 21:12:33</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1542053553792</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>12-Nov-2018 21:51:16</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1542055876326</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>C:\Users\Guilhem\fpga_UART\sw\nios\fpga_UART_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>C:\Users\Guilhem\fpga_UART\hw\quartus\System.sopcinfo</SopcDesignFile>
