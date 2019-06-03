@@ -1,3 +1,7 @@
 [EPFL] Developping a UART peripheral on the DE0-NANO-SOC board with the CYCLONE-V
 
 Project done for the Embedded system course at EPFL.
+
+Vhdl files can be find in hw/hdl
+
+Simulation in the modelsim folder.
